@@ -1,0 +1,11 @@
+<script>
+    const totalDays = prompt("Masukkan jumlah hari : ");
+
+    const years = Math.floor(totalDays/365);
+    let sisaHari = totalDays % 365;
+
+    const months = Math.floor(sisaHari / 30);
+    const days = sisaHari%30;
+
+    alert(`${years} years, ${months} months, ${days} days`);
+</script>
