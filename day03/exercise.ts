@@ -20,16 +20,21 @@ if (x % 2 === 0) {
  * Example: 6 → 6 is not a prime number
  */
 
-let y: number = 7;
+let y: number = 9;
 let statusAngka: string = "";
+let hasilBagi = 0;
 
-for (let i: number = 2; i < 7; i++) {
+for (let i: number = 2; i <= y; i++) {
     if (y % i === 0) {
-        statusAngka = "is not a prime number";
-    } else {
-        statusAngka = "is a prime number";
+        hasilBagi++;
     }
 }
+if (hasilBagi > 1) {
+    statusAngka = "is not a prime number";
+} else if (hasilBagi === 1) {
+    statusAngka = "is a prime number";
+}
+// console.log(hasilBagi);
 console.log(`${y} ${statusAngka}`);
 
 /**
