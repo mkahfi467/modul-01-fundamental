@@ -1,0 +1,70 @@
+<script>
+    let pilihan;
+    let listProduk = ["Espresso", "Latte", "Cappuccino", "Americano"];
+    let message = "";
+
+    function pilihMenu() {
+        pilihan = prompt(
+            "=== MENU PRODUK ===\n" +
+            "1. Lihat Produk\n" +
+            "2. Tambah Produk\n" +
+            "3. Perbarui Produk\n" +
+            "4. Hapus Produk\n" +
+            "5. Keluar\n\n" +
+
+            "Masukkan nomor menu : "
+        )
+    }
+
+    function lihatProduk() {
+        message += "=== Daftar Produk ===\n";
+        for (let i = 0; i < listProduk.length; i++) {
+            message += `${i + 1}. ${listProduk[i]}\n`;
+        }
+        alert(message);
+    }
+
+    function tambahProduk() {
+        let newProduk = prompt("Masukkan nama produk baru :")
+        listProduk.push(newProduk);
+        message += `Produk "${newProduk}" berhasil ditambahkan.`;
+        alert(message);
+    }
+
+    function ubahProduk() {
+        lihatProduk();
+
+        let pilihProduk = prompt("Masukkan nomor produk yang ingin diperbarui :");
+        let namaBaru = prompt("Masukkan nama produk baru :");
+        let idProduk = parseInt(pilihProduk) - 1;
+
+        alert(`Produk "${listProduk[idProduk]}" telah diperbarui menjadi "${namaBaru}"`);
+        listProduk[idProduk] = namaBaru;
+    }
+
+    function hapusProduk() {
+        lihatProduk();
+
+        let pilihProduk = prompt("Masukkan nomor produk yang ingin dihapus : ") ;
+        let idProduk = parseInt(pilihProduk) - 1;
+
+        alert(`Produk "${listProduk[idProduk]}" berhasil dihapus.`);
+        listProduk.splice(idProduk, 1);
+    }
+
+    do {
+        if (pilihan === "1") {
+            lihatProduk();
+        } else if (pilihan === "2") {
+            tambahProduk();
+        } else if (pilihan === "3") {
+            ubahProduk();
+        } else if (pilihan === "4") {
+            hapusProduk();
+        }
+
+        pilihMenu();
+        message = "";
+    } while (pilihan !== "5");
+
+</script>
