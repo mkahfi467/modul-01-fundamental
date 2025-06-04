@@ -1,0 +1,97 @@
+<script>
+    const database = [
+        ["Kaos", 50000, 10],
+        ["Jaket", 50000, 13],
+        ["Celana", 50000, 12],
+    ]
+    let pilihan;
+
+    function pilihMenu() {
+        pilihan = prompt(
+            "=== MENU Management Data ===\n" +
+            "1. Lihat Data\n" +
+            "2. Tambah Data\n" +
+            "3. Perbarui Data\n" +
+            "4. Hapus Data\n" +
+            "5. Keluar\n\n" +
+
+            "Masukkan nomor menu : "
+        )
+    }
+
+    function lihatData() {
+        let daftar = "=== Daftar Data ===\n";
+        for (let i = 0; i < database.length; i++) {
+            /*
+            daftar += `${i}. `;
+            for (let j = 0; j < database[i].length; j++) {
+                const value = database[i][j];
+                daftar += `${value} - `;
+            }
+            daftar += "\n";
+            */
+            const value = database[i];
+            daftar += `${i + 1}. ${value[0]} - Rp. ${value[1]} - Stock : ${value[2]}\n`;
+        }
+        alert(daftar);
+    }
+
+    function tambahData() {
+        const nama = prompt("Masukkan nama data baru : ");
+        const harga = prompt("Masukkan harga data baru : ");
+        const stok = prompt("Masukkan stok data baru :");
+
+        const newData = [nama, harga, stok];
+
+        database.push(newData);
+
+        alert(`Tambah data "${nama}" berhasil dengan harga Rp. ${harga} dan stok ${stok}`);
+    }
+
+    function perbaruiData() {
+        lihatData();
+        let message = "";
+
+        const pilihData = parseInt(prompt("Pilih produk yang ingin dirubah :"));
+        const pilihanYangInginDiganti = parseInt(prompt(`Pilih data apa yang ingin di ganti :
+        1. Nama
+        2. Harga
+        3. Stok`));
+        const inputNilaiBaru = prompt("Masukkan nilai yang ingin dirubah :");
+
+        if (pilihanYangInginDiganti === 1) {
+            message += "Nama ";
+        } else if (pilihanYangInginDiganti === 2) {
+            message += "Harga ";
+        } else if (pilihanYangInginDiganti === 3) {
+            message += "Stok ";
+        }
+
+        alert(message + `"${database[pilihData - 1][pilihanYangInginDiganti - 1]}" berhasil di rubah ke "${inputNilaiBaru}"`)
+        database[pilihData - 1][pilihanYangInginDiganti - 1] = inputNilaiBaru;
+    }
+
+    function hapusData() {
+        lihatData();
+
+        const pilihData = parseInt(prompt("Masukkan nomor data yang ingin dihapus"));
+
+        alert(`"${database[pilihData - 1]}" berhasil di hapus`);
+        database.splice(pilihData - 1, 1);
+    }
+
+    do {
+        pilihMenu();
+        if (pilihan === "1") {
+            lihatData();
+        } else if (pilihan === "2") {
+            tambahData();
+        } else if (pilihan === "3") {
+            perbaruiData();
+        } else if (pilihan === "4") {
+            hapusData();
+        } else if (pilihan === "5") {
+            break;
+        }
+    } while (true);
+</script>
