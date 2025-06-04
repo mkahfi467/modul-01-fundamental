@@ -75,7 +75,8 @@ let result: number[] = [];
 
 function calculate2Array() {
     for (let i: number = 0; i < arrA.length; i++) {
-        result[i] = arrA[i] + arrB[i];
+        // result[i] = arrA[i] + arrB[i];
+        result.push(arrA[i] + arrB[i]);
     }
     return result;
 }
