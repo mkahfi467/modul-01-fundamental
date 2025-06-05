@@ -1,0 +1,78 @@
+<script>
+    const data = ["Gunting", "Batu", "Kertas"];
+    const score = [0, 0, 0];
+
+    function compare(inputUser, pilihanKomputer) {
+        let hasil = "Player ";
+
+        if (inputUser === 1) {
+            switch (pilihanKomputer) {
+                case 0:
+                    hasil += "Imbang";
+                    score[2]++;
+                    break;
+                case 1:
+                    hasil += "Kalah";
+                    score[1]++;
+                    break;
+                case 2:
+                    hasil += "Menang";
+                    score[0]++;
+                    break;
+            }
+        } else if (inputUser === 2) {
+            switch (pilihanKomputer) {
+                case 0:
+                    hasil += "Menang";
+                    score[0]++;
+                    break;
+                case 1:
+                    hasil += "Imbang";
+                    score[2]++;
+                    break;
+                case 2:
+                    hasil += "Kalah";
+                    score[1]++;
+                    break;
+            }
+        } else if (inputUser === 3) {
+            switch (pilihanKomputer) {
+                case 0:
+                    hasil += "Kalah";
+                    score[1]++;
+                    break;
+                case 1:
+                    hasil += "Menang";
+                    score[0]++;
+                    break;
+                case 2:
+                    hasil += "Imbang";
+                    score[2]++;
+                    break;
+            }
+        }
+        return hasil;
+    }
+
+    alert("Welcome to SUIT GAME");
+    while (true) {
+
+        let x = parseInt(prompt(`Select one :
+        1. Gunting
+        2. Batu
+        3. Kertas`));
+
+        let pilihanKomputer = Math.floor(Math.random() * 3);
+
+        alert(`Player ${data[x - 1]} vs PC ${data[pilihanKomputer]}
+        "${compare(x, pilihanKomputer)}"`)
+
+        alert(`WIN : ${score[0]}
+        LOSE : ${score[1]}
+        DRAW : ${score[2]}`);
+
+        if (!confirm("Try again ?")) {
+            break;
+        }
+    }
+</script>
