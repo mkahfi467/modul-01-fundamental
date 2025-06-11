@@ -13,7 +13,7 @@ const array2: IStudent[] = [
     { name: 'Student 3', email: 'student3@mail.com' },
     { name: 'Student 4', email: 'student4@mail.com' }
 ]
-const mergeArray = (array1: any, array2: any) => {
+const mergeArray = (array1: IStudent[], array2: IStudent[]) => {
     const combine = array1;
 
     array2.forEach((value) => {
@@ -35,7 +35,7 @@ const array3 = [{ name: 'David', age: 20 }, { name: 'Adi', age: 17 }];
 function ubah(array: any) {
     const ubah: any = [];
 
-    array.forEach((val) => {
+    array.forEach((val: any) => {
         const objekBaru: any = {};
         // console.log(val);
         
