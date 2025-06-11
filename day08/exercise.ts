@@ -33,7 +33,6 @@ console.log(mergeArray(array1, array2));
 const array3 = [{ name: 'David', age: 20 }, { name: 'Adi', age: 17 }];
 
 function ubah(array: any) {
-    const nameProperti = Object.getOwnPropertyNames(array[0]);
     const ubah: any = [];
 
     array.forEach((val) => {
