@@ -30,7 +30,7 @@ const mergeArray = (array1: any, array2: any) => {
 console.log(mergeArray(array1, array2));
 
 // Exercise 2
-const array3 = [{ name: 'David', age: 20 }];
+const array3 = [{ name: 'David', age: 20 }, { name: 'Adi', age: 17 }];
 
 function ubah(array: any) {
     const nameProperti = Object.getOwnPropertyNames(array[0]);
@@ -38,11 +38,11 @@ function ubah(array: any) {
 
     array.forEach((val) => {
         const objekBaru: any = {};
-        console.log(val);
+        // console.log(val);
         
         for (const key in val) {
             const value = val[key];
-            console.log(typeof(value));
+            // console.log(typeof(value));
             
             objekBaru[value] = key;
         }
