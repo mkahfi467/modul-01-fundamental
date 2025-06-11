@@ -34,10 +34,21 @@ const array3 = [{ name: 'David', age: 20 }];
 
 function ubah(array: any) {
     const nameProperti = Object.getOwnPropertyNames(array[0]);
+    const ubah: any = [];
 
+    array.forEach((val) => {
+        const objekBaru: any = {};
+        console.log(val);
+        
+        for (const key in val) {
+            const value = val[key];
+            console.log(typeof(value));
+            
+            objekBaru[value] = key;
+        }
+        ubah.push(objekBaru);
+    });
+    return ubah;
 }
-// console.log(ubah(array3));
-
-
-// console.log(Object.getOwnPropertyNames(array3[0]));
+console.log(ubah(array3));
 
