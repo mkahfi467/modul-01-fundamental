@@ -158,3 +158,107 @@ const listSiswa: ISiswa[] = [
         kelas: "IPS",
     },
 ]
+
+console.log(`${listSiswa[0]}`);
+
+// JSON
+const stringObject = JSON.stringify(listSiswa[0]);
+console.log(typeof stringObject);
+console.log(stringObject);
+console.log(JSON.parse(stringObject));
+console.log(typeof JSON.parse(stringObject));
+
+// Function : cara untuk menyatukan sekumpulan program yang ditujukan untuk menyelesaikan tugas khusus
+/**
+ * Kategori : Built-in function dan User-defined function
+ * Aturan penerapan function :
+ * - Function harus tersedia lebih dulu
+ * - Penamaan function mengikuti aturan penamaan variable
+ * - Secara opsional bisa menerima parameter/argumen : penampung data dari function untuk menerima data dari luar function
+ * - Function secara opsional bisa menghasilkan output melalui keyword return didalamnya
+ * - Opsi penulisan function ada tiga : Declarative func, Func. Expression, dan Arrow Function
+ */
+
+/**
+ * Declarative function : 
+ * function namaFunc(param1?, param2?, ...) {
+ *      // CODE
+ * }
+ */
+// ini adalah contoh dari hoisting function dimana sebenarnya sistem dibalik layar memindahkan sebuah declarative function posisinya keatas
+console.log(penjumlahan());
+
+function penjumlahan(): number {
+    let angkaA: number = 2;
+    let angkaB: number = 3;
+
+    const result: number = angkaA + angkaB;
+
+    return result;
+}
+
+console.log(penjumlahan());
+
+function penjumlahanB(angkaA: number, angkaB: number): number {
+    const result: number = angkaA + angkaB;
+    return result;
+}
+
+console.log(penjumlahanB(4, 3));
+console.log(penjumlahanB(75, 24));
+
+/**
+ * Function expression :
+ * const namaFunc = function(param1?, param2?, ...) {
+ *      // CODE
+ * }
+ */
+// Ini tidak bisa dilakukan karena hoisting function hanya bisa di declarative function
+// console.log(pengurangan());
+
+const pengurangan = function (): number {
+    let angkaA: number = 2;
+    let angkaB: number = 3;
+
+    const result: number = angkaA + angkaB;
+
+    return result;
+}
+
+console.log(pengurangan());
+
+const penguranganB = function (angkaA: number, angkaB: number): number {
+    const result: number = angkaA + angkaB;
+
+    return result;
+}
+
+console.log(penguranganB(23, 76));
+
+/**
+ * Arrow function :
+ * const namaFunc = (param1?, param2?, ...) => {
+ *      // CODE
+ * }
+ */
+
+const perkalian = (): number => {
+    let angkaA: number = 10;
+    let angkaB: number = 20;
+
+    const result: number = angkaA * angkaB;
+
+    return result;
+}
+console.log(perkalian());
+
+const perkalianB = (angkaA: number, angkaB: number): number => {
+    const result: number = angkaA * angkaB;
+
+    return result;
+}
+console.log(perkalianB(33, 3));
+
+const perkalianC = (angkaA: number, angkaB: number): number => angkaA * angkaB;
+console.log(perkalianC(32, 4));
+
